@@ -1,8 +1,11 @@
 #!/usr/bin/bash
 
-install_path=$1
-pyside2_version=$2
-pyside2_url=$3
+# Will exit the Bash script the moment any command will itself exit with a non-zero status, thus an error.
+set -e
+
+INSTALL_PATH=$1
+PYSIDE2_URL=$2
+PYSIDE2_VERSION=${REZ_BUILD_PROJECT_VERSION}
 
 # We print the arguments passed to the Bash script
 echo -e "\n"
@@ -11,19 +14,20 @@ echo -e "=== INSTALL ==="
 echo -e "==============="
 echo -e "\n"
 
-echo -e "[INSTALL][ARGS] BUILD PATH: ${build_path}"
-echo -e "[INSTALL][ARGS] PYSIDE2 VERSION: ${pyside2_version}"
+echo -e "[INSTALL][ARGS] INSTALL PATH: ${INSTALL_PATH}"
+echo -e "[INSTALL][ARGS] PYSIDE2 URL: ${PYSIDE2_URL}"
+echo -e "[INSTALL][ARGS] PYSIDE2 VERSION: ${PYSIDE2_VERSION}"
 
-cd $build_path
+cd ${INSTALL_PATH}
 
-# We finally install PySide2
+# We install PySide2
 echo -e "\n"
-echo -e "[INSTALL] Installing PySide2-${pyside2_version}..."
+echo -e "[INSTALL] Installing PySide2-${PYSIDE2_VERSION}..."
 echo -e "\n"
 
 # We copy the necessary files to the install directory
-pip install ${pyside2_url} --target ${install_path} --upgrade --no-dependencies
+pip2 install ${PYSIDE2_URL} --target ${INSTALL_PATH} --upgrade --no-dependencies
 
 echo -e "\n"
-echo -e "[INSTALL] Finished installing PySide2-${pyside2_version}!"
+echo -e "[INSTALL] Finished installing PySide2-${PYSIDE2_VERSION}!"
 echo -e "\n"

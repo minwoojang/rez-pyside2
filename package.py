@@ -1,6 +1,6 @@
 name = "pyside2"
 
-version = "5.12.5"
+version = "5.12.5.py2"
 
 authors = [
     "The Qt Company"
@@ -13,8 +13,8 @@ description = \
 
 requires = [
     "cmake-3+",
-    "python-2+",
-    "shiboken2-5.12.5"
+    "python-2.7+",
+    "shiboken2-5.12.5.py2"
 ]
 
 variants = [
@@ -27,11 +27,13 @@ tools = [
     "pyside2-uic"
 ]
 
+build_system = "cmake"
+
 with scope("config") as config:
     config.build_thread_count = "logical_cores"
 
 #TODO: Use the SHA1 of the archive instead.
-uuid = "pyside2-5.12.5"
+uuid = "pyside2-5.12.5.py2"
 
 def commands():
     env.PATH.prepend("{root}/bin")
