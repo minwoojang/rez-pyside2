@@ -14,7 +14,7 @@ description = \
 requires = [
     "cmake-3",
     "python-2.7",
-    "shiboken2-5.12.5.py2"
+    "shiboken2-5.12.5"
 ]
 
 variants = [
