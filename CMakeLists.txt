@@ -11,7 +11,7 @@ list(GET PYSIDE2_VERSION_LIST 2 PYSIDE2_VERSION_PATCH)
 list(GET PYSIDE2_VERSION_LIST 2 PYSIDE2_VERSION_PYTHON)
 
 # We create Pythonless version of PySide2 to make it match with the one in the archive name.
-set(PYSIDE2_VERSION_PYTHONLESS "${PYSIDE2_VERSION_MAJOR}.${PYSIDE2_VERSION_MINOR}.${PYSIDE2_VERSION_PATCH}")
+set(PYSIDE2_PYTHONLESS_VERSION "${PYSIDE2_VERSION_MAJOR}.${PYSIDE2_VERSION_MINOR}.${PYSIDE2_VERSION_PATCH}")
 
 # PySide2
 rez_set_archive(
@@ -19,7 +19,7 @@ rez_set_archive(
     # that is pointing to the root directory where we can find all the archives of the package
     # we can build, using the following hierarchy:
     # "${REZ_REPO_PAYLOAD_DIR}/project_name/archive.what.ever"
-    PYSIDE2_URL pyside2/PySide2-${PYSIDE2_VERSION_PYTHONLESS}-${PYSIDE2_VERSION_PYTHONLESS}-cp27-cp27mu-manylinux1_x86_64.whl
+    PYSIDE2_URL pyside2/PySide2-${PYSIDE2_PYTHONLESS_VERSION}-${PYSIDE2_PYTHONLESS_VERSION}-cp27-cp27mu-manylinux1_x86_64.whl
     https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.12.5-5.12.5-cp27-cp27mu-manylinux1_x86_64.whl
 )
 
