@@ -27,7 +27,7 @@ rez_set_archive(
 # script(s) inside an "execute_process" macro.
 execute_process(
     COMMAND
-    bash ${CMAKE_SOURCE_DIR}/install.sh ${CMAKE_INSTALL_PREFIX} ${PYSIDE2_URL}
+    bash ${CMAKE_SOURCE_DIR}/install.sh ${PYSIDE2_URL}
 )
 
 # We use a bogus CMake "install" step in order to be able to properly finish
