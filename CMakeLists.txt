@@ -20,7 +20,7 @@ rez_set_archive(
     # we can build, using the following hierarchy:
     # "${REZ_REPO_PAYLOAD_DIR}/project_name/archive.what.ever"
     PYSIDE2_URL pyside2/PySide2-${PYSIDE2_PYTHONLESS_VERSION}-${PYSIDE2_PYTHONLESS_VERSION}-cp27-cp27mu-manylinux1_x86_64.whl
-    https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.12.5-5.12.5-cp27-cp27mu-manylinux1_x86_64.whl
+    https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-${PYSIDE2_PYTHONLESS_VERSION}-${PYSIDE2_PYTHONLESS_VERSION}-cp27-cp27mu-manylinux1_x86_64.whl
 )
 
 # In the case of a Python pip wheel file, we do not have any archive to extract, so we can just execute our Bash
@@ -28,7 +28,14 @@ rez_set_archive(
 execute_process(
     COMMAND
     bash ${CMAKE_SOURCE_DIR}/install.sh ${PYSIDE2_URL}
+    RESULT_VARIABLE RETURN_CODE
 )
+
+# We check that the execute_process() macro terminated properly.
+# If not, we abort the process.
+if(RETURN_CODE EQUAL "1")
+    message(FATAL_ERROR "[CMAKE] Install script returned an error code. Aborting...")
+endif()
 
 # We use a bogus CMake "install" step in order to be able to properly finish
 # and get out of the CMake script.
