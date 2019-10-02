@@ -39,6 +39,6 @@ def commands():
     env.PYTHONPATH.prepend("{root}")
 
     # Helper environment variables.
-    env.PYSIDE2_BINARY_PATH.set("{root}/bin")
-    env.PYSIDE2_INCLUDE_PATH.set("{root}/PySide2/include")
-    env.PYSIDE2_LIBRARY_PATH.set("{root}/PySide2")
+    env.PYSIDE_BINARY_PATH.set("{root}/bin")
+    env.PYSIDE_INCLUDE_PATH.set("{root}/PySide2/include")
+    env.PYSIDE_LIBRARY_PATH.set("{root}/PySide2")
