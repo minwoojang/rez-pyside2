@@ -1,6 +1,6 @@
 name = "pyside2"
 
-version = "5.12.5.py2"
+version = "5.15.2.1"
 
 authors = [
     "The Qt Company"
@@ -13,12 +13,12 @@ description = \
 
 requires = [
     "cmake-3+",
-    "python-2.7+<3",
-    "shiboken2-{version}".format(version=str(version))
+    "python",
+    "shiboken2"
 ]
 
 variants = [
-    ["platform-linux"]
+    ["platform-linux","arch-x86_64"]
 ]
 
 tools = [
